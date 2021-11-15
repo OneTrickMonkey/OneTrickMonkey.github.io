@@ -28,9 +28,9 @@ var counterShow = false;
 document.onkeydown = handleKeyDown;
 
 window.onmessage = (event) => {
-    if (Number.isInteger(event.data)) {
-        unlockCharacters(event.data);
-    }
+    if (event.data.startsWith("highscore") {
+		unlockCharacters(parseInt(event.data.split(",")[1]));
+	}
 };
 
 function init() {
@@ -360,7 +360,8 @@ function die() {
     createjs.Tween.get(share).to({alpha:1, y: share.y + 50}, 400, createjs.Ease.sineIn).call(addClickToStart)
     createjs.Tween.get(characterMenu).to({alpha:1, y: characterMenu.y + 50}, 400, createjs.Ease.sineIn).call(addClickToStart)
 
-    window.parent.postMessage(counter.text, "*");
+	unlockCharacters(parseInt(counter.text));
+    window.parent.postMessage("score," + counter.text, "*");
 }
 function removeStart() {
     stage.removeChild(start)

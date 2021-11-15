@@ -28,7 +28,7 @@ var counterShow = false;
 document.onkeydown = handleKeyDown;
 
 window.onmessage = (event) => {
-    if (event.data.startsWith("highscore") {
+    if (event.data.startsWith("highscore")) {
 		unlockCharacters(parseInt(event.data.split(",")[1]));
 	}
 };

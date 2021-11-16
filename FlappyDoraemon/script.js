@@ -404,7 +404,7 @@ function goShare() {
     } else {
         countText = counter.text + " points"
     }
-    window.open("https://twitter.com/share?url=http%3A%2F%2Fappcycle.me/flappy&text=I scored " + countText +  " on www.doraemoninueth.com");
+    window.open("https://twitter.com/share?url=www.doraemoninueth.com/play-and-earn&text=I scored " + countText +  "!");
 }
 
 function tick(event) {

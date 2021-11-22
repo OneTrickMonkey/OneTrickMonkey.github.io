@@ -31,6 +31,8 @@ window.onmessage = (event) => {
 	let message = event.data.toString()
     if (message.startsWith("highscore")) {
 		unlockCharacters(parseInt(message.split(",")[1]));
+	} else if (message == "reset") {
+		window.location.reload();
 	}
 };
 

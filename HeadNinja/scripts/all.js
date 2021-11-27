@@ -146,8 +146,8 @@ define("scripts/control.js", function(exports){
 		var de = document.documentElement;
 	
 		var fix = function(e){
-		    canvasLeft = (de.clientWidth - 640) / 2;
-		    canvasTop = (de.clientHeight - 480) / 2 - 40;
+			canvasLeft = 0;
+			canvasTop = 0;
 		};
 	
 		fix();

@@ -9,6 +9,7 @@ html, body{
 
 body{
 	position: relative;
+	margin: 0;
 }
 
 em{
@@ -17,11 +18,11 @@ em{
 
 #extra, #view{
 	position: absolute;
-	left: 50%;
-	top: 50%;
+	/*left: 50%;*/
+	/*top: 50%;*/
 	width: 640px;
 	height: 480px;
-	margin: -280px auto auto -320px;
+	/*margin: -280px auto auto -320px;*/
 	text-align: left;
 	background: #fff;
 }

@@ -462,7 +462,7 @@ define("scripts/main.js", function(exports){
 	
 	tip = tip.replace( "$", "" );
 	
-	Ucren.Element( "browser" ).html( tip );;
+	// Ucren.Element( "browser" ).html( tip );;
 
 	return exports;
 });

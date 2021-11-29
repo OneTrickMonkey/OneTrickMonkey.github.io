@@ -13,90 +13,108 @@ body {
 }
 
 #extra, #view{
+	--scale: 1;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	width: 640px;
-	height: 480px;
-	margin: -280px auto auto -320px;
 	text-align: left;
 	background: #fff;
-
-	-webkit-transform: scale(1);
 	-webkit-transform-origin: 0 0;
-	transform: scale(1);
 	transform-origin: 0 0;
 	transform-box: fill-box;
 }
 
-@media all and (min-width:569px) and (max-width: 640px) {
+@media all and (min-width:640px) and (min-height: 0px) and (max-height: 63px) {
 	#extra, #view {
-		-webkit-transform: scale(0.875);
-		transform: scale(0.875);
-		width: calc(640px * 0.875);
-		height: calc(480px * 0.875);
-		margin: calc(-280px * 0.875) auto auto calc(-320px * 0.875);
+		--scale: 0;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 64px) and (max-height: 139px) {
+	#extra, #view {
+		--scale: 0.1;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 140px) and (max-height: 224px) {
+	#extra, #view {
+		--scale: 0.25;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 225px) and (max-height: 279px) {
+	#extra, #view {
+		--scale: 0.4;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 280px) and (max-height: 359px) {
+	#extra, #view {
+		--scale: 0.5;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 360px) and (max-height: 419px) {
+	#extra, #view {
+		--scale: 0.6;
+	}
+}
+
+@media all and (min-width:640px) and (min-height: 420px) and (max-height: 579px) {
+	#extra, #view {
+		--scale: 0.75;
+	}
+}
+
+/* Adjust for widths < 640px */
+@media all and (min-width:569px) and (max-width: 639px) {
+	#extra, #view {
+		--scale: 0.875;
 	}
 }
 
 @media all and (min-width:481px) and (max-width: 568px) {
 	#extra, #view {
-		-webkit-transform: scale(0.75);
-		transform: scale(0.75);
-		width: calc(640px * 0.75);
-		height: calc(480px * 0.75);
-		margin: calc(-280px * 0.75) auto auto calc(-320px * 0.75);
+		--scale: 0.75;
 	}
 }
 
 @media all and (min-width:321px) and (max-width: 480px) {
 	#extra, #view {
-		-webkit-transform: scale(0.5);
-		transform: scale(0.5);
-		width: calc(640px * 0.5);
-		height: calc(480px * 0.5);
-		margin: calc(-280px * 0.5) auto auto calc(-320px * 0.5);
+		--scale: 0.5;
 	}
 }
 
 @media all and (min-width:256px) and (max-width: 320px) {
 	#extra, #view {
-		-webkit-transform: scale(0.4);
-		transform: scale(0.4);
-		width: calc(640px * 0.4);
-		height: calc(480px * 0.4);
-		margin: calc(-280px * 0.4) auto auto calc(-320px * 0.4);
+		--scale: 0.4;
 	}
 }
 
 @media all and (min-width:160px) and (max-width: 255px) {
 	#extra, #view {
-		-webkit-transform: scale(0.25);
-		transform: scale(0.25);
-		width: calc(640px * 0.25);
-		height: calc(480px * 0.25);
-		margin: calc(-280px * 0.25) auto auto calc(-320px * 0.25);
+		--scale: 0.25;
 	}
 }
 
 @media all and (min-width:64px) and (max-width: 159px) {
 	#extra, #view {
-		-webkit-transform: scale(0.1);
-		transform: scale(0.1);
-		width: calc(640px * 0.1);
-		height: calc(480px * 0.1);
-		margin: calc(-280px * 0.1) auto auto calc(-320px * 0.1);
+		--scale: 0.1;
 	}
 }
 
 @media all and (min-width:0px) and (max-width: 63px) {
 	#extra, #view {
-		-webkit-transform: scale(0);
-		transform: scale(0);
-		width: calc(640px * 0);
-		height: calc(480px * 0);
-		margin: calc(-280px * 0) auto auto calc(-320px * 0);
+		--scale: 0;
 	}
+}
+
+#extra, #view {
+	-webkit-transform: scale(var(--scale));
+	transform: scale(var(--scale));
+	width: calc(640px * var(--scale));
+	height: calc(480px * var(--scale));
+	margin: calc(-280px * var(--scale)) auto auto calc(-320px * var(--scale));
 }
 
 em{

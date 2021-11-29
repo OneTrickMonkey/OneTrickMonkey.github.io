@@ -290,6 +290,7 @@ define("scripts/game.js", function(exports){
 	});
 	
 	message.addEventListener("game.over", function(){
+		score.updateHighscore();
 	    exports.gameOver();
 	    knife.switchOn();
 	});
@@ -4855,7 +4856,7 @@ define("scripts/object/score.js", function(exports){
 	exports.set = function(){
 	    image = layer.createImage( "default", "images/score.png", imageSx, 8, 29, 31 ).hide();
 	    text1 = layer.createText( "default", "0", text1Sx, 24, "90-#fc7f0c-#ffec53", "30px" ).hide();
-	    text2 = layer.createText( "default", "BEST 999", text2Sx, 48, "#af7c05", "14px" ).hide();
+	    text2 = layer.createText( "default", "BEST 0", text2Sx, 48, "#af7c05", "14px" ).hide();
 	};
 	
 	exports.show = function( start ){
@@ -4880,10 +4881,26 @@ define("scripts/object/score.js", function(exports){
 	    setTimeout(function(){
 	        image.scale( 1, 1 );
 	    }, 60);
-	    // message.postMessage( number, "score.change" );
 	};
-	
-	// 显示/隐藏 相关
+
+	exports.updateHighscore = function(){
+		var highscore = parseInt(text2.attrs["text"].split(" ")[1]);
+		var score = parseInt(text1.attrs["text"]);
+		if (score > highscore) {
+			window.parent.postMessage("highscore," + highscore, "*");
+			text2.attr("text", "BEST " + score)
+		}
+	}
+
+	window.onmessage = (event) => {
+		let message = event.data.toString()
+		if (message.startsWith("highscore")) {
+			var highscore = parseInt(message.split(",")[1]);
+			text2.attr("text", "BEST " + highscore)
+		}
+	}
+
+		// 显示/隐藏 相关
 	
 	exports.onTimeUpdate = function( time, mode, isx, iex, t1sx, t1ex, t2sx, t2ex ){
 	    image.attr( "x", anim( time, isx, iex - isx, animLength ) );

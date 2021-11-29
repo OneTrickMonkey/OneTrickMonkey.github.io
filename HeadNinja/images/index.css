@@ -1,15 +1,53 @@
 {include ../../system/css/reset.css}
 {include ../../system/css/common.css}
 
-html, body{
-	width: 100%;
-	height: 100%;
+html {
 	/*background: #484848;*/
-	-webkit-transform: scale(0.75);
+	-webkit-transform: scale(1);
 	-webkit-transform-origin: 0 0;
-	transform: scale(0.75);
+	transform: scale(1);
 	transform-origin: 0 0;
 	transform-box: fill-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+}
+
+@media all and (min-width:569px) and (max-width: 640px) {
+	html {
+		-webkit-transform: scale(0.875);
+		transform: scale(0.875);
+	}
+}
+
+@media all and (min-width:481px) and (max-width: 568px) {
+	html {
+		-webkit-transform: scale(0.75);
+		transform: scale(0.75);
+	}
+}
+
+@media all and (min-width:321px) and (max-width: 480px) {
+	html {
+		-webkit-transform: scale(0.5);
+		transform: scale(0.5);
+	}
+}
+
+@media all and (min-width:256px) and (max-width: 320px) {
+	html {
+		-webkit-transform: scale(0.4);
+		transform: scale(0.4);
+	}
+}
+
+@media all and (min-width:160px) and (max-width: 255px) {
+	html {
+		-webkit-transform: scale(0.25);
+		transform: scale(0.25);
+	}
 }
 
 body{

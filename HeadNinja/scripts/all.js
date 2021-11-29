@@ -124,7 +124,7 @@ define("scripts/control.js", function(exports){
 	    var dragger = new Ucren.BasicDrag({ type: "calc" });
 
 	    var box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
-		
+
 		dragger.on("returnValue", function( dx, dy, x, y, kf ){
 	    	if( kf = knife.through( (x - canvasLeft) / box.width * 640, (y - canvasTop) / box.height * 480) )
 	            message.postMessage( kf, "slice" );

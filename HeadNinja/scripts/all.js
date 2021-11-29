@@ -4887,7 +4887,7 @@ define("scripts/object/score.js", function(exports){
 		var highscore = parseInt(text2.attrs["text"].split(" ")[1]);
 		var score = parseInt(text1.attrs["text"]);
 		if (score > highscore) {
-			window.parent.postMessage("highscore," + highscore, "*");
+			window.parent.postMessage("highscore," + score, "*");
 			text2.attr("text", "BEST " + score)
 		}
 	}

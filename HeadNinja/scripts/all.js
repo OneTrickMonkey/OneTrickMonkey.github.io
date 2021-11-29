@@ -567,7 +567,6 @@ define("scripts/sence.js", function(exports){
 	    menuSnd = sound.create( "sound/menu" );
 	    gameStartSnd = sound.create( "sound/start" );
 		[ background, homeMask, logo, ninja, homeDesc, newGame, score, lose, developing, gameOver, flash ].invoke( "set" );
-	    setInterval( fps.update.bind( fps ), 500 );
 	};
 	
 	// switch sence
@@ -4233,7 +4232,7 @@ define("scripts/object/fps.js", function(exports){
 	
 	exports.update = function(){
 		text.attr( "text", fps + ( timeline.getFPS() >> 0 ) );
-	};;
+	};
 
 	return exports;
 });

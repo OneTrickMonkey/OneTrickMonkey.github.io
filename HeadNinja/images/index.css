@@ -8,7 +8,8 @@ html, body {
 
 body {
 	position: relative;
-	margin:0
+	margin:0;
+	touch-action: none;
 }
 
 #extra, #view{
@@ -117,8 +118,6 @@ em{
 	position: absolute;
 	left: 0;
 	top: 0;
-	/*width: 640px;*/
-	/*height: 480px;*/
 	z-index: 10;
 }
 

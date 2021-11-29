@@ -110,10 +110,15 @@ define("scripts/control.js", function(exports){
 	var message = require("scripts/message");
 	var state = require("scripts/state");
 
-	var canvasLeft, canvasTop;
-	
-	canvasLeft = canvasTop = 0;
-	
+	var box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
+
+	var canvasLeft = box.left;
+	var canvasTop = box.top;
+
+	window.onresize = function() {
+		box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
+	}
+
 	exports.init = function(){
 		this.fixCanvasPos();
 		this.installDragger();
@@ -122,8 +127,6 @@ define("scripts/control.js", function(exports){
 	
 	exports.installDragger = function(){
 	    var dragger = new Ucren.BasicDrag({ type: "calc" });
-
-	    var box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
 
 		dragger.on("returnValue", function( dx, dy, x, y, kf ){
 	    	if( kf = knife.through( (x - canvasLeft) / box.width * 640, (y - canvasTop) / box.height * 480) )
@@ -148,8 +151,8 @@ define("scripts/control.js", function(exports){
 		var de = document.documentElement;
 	
 		var fix = function(e){
-			canvasLeft = 0;
-			canvasTop = 0;
+			canvasLeft = box.left;
+			canvasTop = box.top;
 		};
 	
 		fix();

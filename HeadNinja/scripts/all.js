@@ -109,7 +109,7 @@ define("scripts/control.js", function(exports){
 	var knife = require("scripts/object/knife");
 	var message = require("scripts/message");
 	var state = require("scripts/state");
-	
+
 	var canvasLeft, canvasTop;
 	
 	canvasLeft = canvasTop = 0;
@@ -122,12 +122,14 @@ define("scripts/control.js", function(exports){
 	
 	exports.installDragger = function(){
 	    var dragger = new Ucren.BasicDrag({ type: "calc" });
-	
-	    dragger.on("returnValue", function( dx, dy, x, y, kf ){
-	    	if( kf = knife.through( x - canvasLeft, y - canvasTop ) )
+
+	    var box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
+		
+		dragger.on("returnValue", function( dx, dy, x, y, kf ){
+	    	if( kf = knife.through( (x - canvasLeft) / box.width * 640, (y - canvasTop) / box.height * 480) )
 	            message.postMessage( kf, "slice" );
 	    });
-	
+
 	    dragger.on("startDrag", function(){
 	        knife.newKnife();
 	    });

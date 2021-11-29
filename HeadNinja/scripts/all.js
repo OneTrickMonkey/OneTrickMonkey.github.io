@@ -110,13 +110,15 @@ define("scripts/control.js", function(exports){
 	var message = require("scripts/message");
 	var state = require("scripts/state");
 
-	var box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
+	var box = document.getElementById("extra").getBoundingClientRect()
 
 	var canvasLeft = box.left;
 	var canvasTop = box.top;
 
 	window.onresize = function() {
-		box = document.getElementsByClassName("layer")[0].getBoundingClientRect()
+		box = document.getElementById("extra").getBoundingClientRect()
+		canvasLeft = box.left;
+		canvasTop = box.top;
 	}
 
 	exports.init = function(){
